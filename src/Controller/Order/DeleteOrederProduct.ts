@@ -5,9 +5,6 @@ export class DeleteOrderController {
     async handle(request: Request, response: Response) {
         const { order_id } = request.params
 
-        console.log(request.params);
-        
-
         try {
             const deleteOrederService = new DeleteOrderService
             const result = await deleteOrederService.execute(order_id)

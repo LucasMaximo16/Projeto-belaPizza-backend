@@ -20,8 +20,6 @@ export class CreateProductRepository {
                 category_id: data.category_id
             }
         }).then((result) => {
-            console.log(result);
-
             return {
                 status: 200,
                 data: result

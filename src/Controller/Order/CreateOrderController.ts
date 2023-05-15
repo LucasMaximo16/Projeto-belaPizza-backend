@@ -9,7 +9,7 @@ export class CreateOrderController {
         try {
             const createOrderService = new CreateOrderService()
             const result = await createOrderService.execute(data)
-
+            
             return response.status(result.status).json(result.data)
 
         } catch (error) {

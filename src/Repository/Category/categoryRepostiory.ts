@@ -6,9 +6,7 @@ export interface ICategory {
 }
 
 export class CategoryRepository {
-    async create(data: ICategory): IDatabaseResponse {
-        console.log(data);
-        
+    async create(data: ICategory): IDatabaseResponse {        
         const verifyCategory = await prismaClient.category.findFirst({
             where: {
                 name: data.name

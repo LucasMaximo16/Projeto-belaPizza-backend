@@ -6,8 +6,6 @@ export class CreateCategoryController {
     async handle(request: Request, response: Response) {
 
         const data: ICategoryDTO = request.body
-        console.log(data, "Aqui data");
-        
 
         try {
             const createCategoryService = new CreateCategoryService()

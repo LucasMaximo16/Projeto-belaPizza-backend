@@ -1,23 +1,47 @@
+import socketio from 'socket.io';
 import bodyParser from "body-parser";
 import express from "express";
 import { routes } from "./routes";
+// import { httpServer } from "./http"
+import http from "http"
 
 const cors = require('cors')
 const app = express()
-
-var corsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200
+const httpServer = http.createServer(app)
+const io = new socketio.Server(httpServer, {
+    cors: {
+        origin: '*',
+    }
+})
+const corsOptions = {
+    origin: ['http://localhost:3333', 'http://localhost:4200'],
+    credentials: true
 }
+
+io.on('connection', (socket) => {
+    socket.on('message', message => {
+        console.log(message);
+        io.emit('recived', 'Mensage, Recebida' +  message)
+    })
+
+    socket.on('novo-pedido', pedido => {
+        console.log(pedido);
+        io.emit('Pedido-Enviado', JSON.stringify(pedido))
+    })
+})
+
 
 app.use(express.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
-app.use(cors(corsOptions));
-
-app.use(express.json())
-
 app.use(cors(corsOptions))
-
 app.use(routes)
 
-app.listen(3333)
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
+httpServer.listen(3333, () => console.log("SERVER RODANDO NA PORTA 3333"))
