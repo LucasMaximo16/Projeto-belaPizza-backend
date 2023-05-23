@@ -1,6 +1,7 @@
+import { DeleteItemDTO } from '../../DTO/ItemDTO/deleteItemDTO';
 import { ItemRepository } from './../../Repository/Item/ItemRepository';
 export class DeleteItemService {
-    async execute(id: string) {
+    async execute(id: DeleteItemDTO) {
 
         const itemRepository = new ItemRepository
 

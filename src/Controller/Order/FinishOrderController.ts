@@ -8,7 +8,7 @@ export class FinishOrderController {
         try {
             const orderService = new FinishOrderService
             const result = await orderService.execute(order_id)
-
+            console.log(order_id);
             return response.status(result.status).json(result.data)
 
         } catch (error) {

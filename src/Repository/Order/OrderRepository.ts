@@ -13,7 +13,7 @@ export class OrderRepository {
         return await prismaClient.order.create({
             data: {
                 table: data.table,
-                nmae: data.name
+                name: data.name
             }
         }).then((result) => {
             return {
@@ -50,6 +50,32 @@ export class OrderRepository {
         })
     }
 
+    async deleteItensOrder(idOrder: string): IDatabaseResponse {
+        console.log(idOrder);
+        try {
+            const deletedItems = await prismaClient.item.deleteMany({
+                where: {
+                    order_id: {
+                        equals: idOrder
+                    }
+                }
+            });
+
+            return {
+                status: 200,
+                data: deletedItems
+            };
+        } catch (error) {
+            return {
+                status: 400,
+                data: {
+                    message: "INTERNAL SERVER ERROR"
+                }
+            };
+        }
+    }
+
+
     async delete(id: string) {
         return await prismaClient.order.delete({
             where: {
@@ -62,7 +88,7 @@ export class OrderRepository {
             }
         }).catch((error) => {
             return {
-                status: 200,
+                status: 400,
                 data: {
                     message: "INTERNAL SERVER ERROR"
                 }
@@ -107,6 +133,7 @@ export class OrderRepository {
                 data: result
             }
         }).catch((error) => {
+            console.log(error);
             return {
                 status: 400,
                 data: {
@@ -141,6 +168,7 @@ export class OrderRepository {
     }
 
     async finishOrder(order_id: string): IDatabaseResponse {
+        console.log(order_id);
         return await prismaClient.order.update({
             where: {
                 id: order_id

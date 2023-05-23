@@ -3,11 +3,11 @@ import { DeleteItemService } from '../../services/Item/deleteItemService';
 export class DeleteItemController {
     async handle(request: Request, response: Response) {
 
-        const { id_item } = request.params
+        const  iditem  = request.body
 
         try {
             const deleteItemService = new DeleteItemService
-            const result = await deleteItemService.execute(id_item)
+            const result = await deleteItemService.execute(iditem)
 
             return response.status(result.status).json(result.data)
 

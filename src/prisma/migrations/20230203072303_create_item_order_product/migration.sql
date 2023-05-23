@@ -28,7 +28,7 @@ CREATE TABLE "orders" (
     "table" INTEGER NOT NULL,
     "status" BOOLEAN NOT NULL DEFAULT false,
     "draft" BOOLEAN NOT NULL DEFAULT true,
-    "nmae" TEXT,
+    "name" TEXT,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
 

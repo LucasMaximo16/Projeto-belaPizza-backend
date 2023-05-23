@@ -17,7 +17,7 @@ productRoutes.get('/:id_category', auth, (request: Request, response: Response) 
     return getProductByCategory.handle(request, response)
 })
 
-productRoutes.get('/', (request: Request, response: Response) => {
+productRoutes.get('/', auth, (request: Request, response: Response) => {
     return getAllProduct.handle(request, response)
 })
 

@@ -14,7 +14,7 @@ const io = new socketio.Server(httpServer, {
     }
 })
 const corsOptions = {
-    origin: ['http://localhost:3333', 'http://localhost:4200'],
+    origin: ['http://localhost:3333', 'http://localhost:4200', 'http://localhost:3000'],
     credentials: true
 }
 
@@ -27,6 +27,11 @@ io.on('connection', (socket) => {
     socket.on('novo-pedido', pedido => {
         console.log(pedido);
         io.emit('Pedido-Enviado', JSON.stringify(pedido))
+    })
+
+    socket.on("item-deletado", pedido => {
+        console.log(pedido, "AURETARASEASAWQJ");
+        io.emit("Pedido-enviado", pedido)
     })
 })
 

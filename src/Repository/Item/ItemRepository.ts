@@ -1,5 +1,7 @@
+import { order_id } from './../../services/order/FinishOrderService';
 import { IDatabaseResponse } from './../../types/IDatabaseRespose';
 import { prismaClient } from "../../prisma";
+import { DeleteItemDTO } from '../../DTO/ItemDTO/deleteItemDTO';
 
 export interface ItemProps {
     order_id: string
@@ -35,10 +37,12 @@ export class ItemRepository {
         })
     }
 
-    async delete(id_item: string): IDatabaseResponse {
-        return await prismaClient.item.delete({
+    async delete(data: DeleteItemDTO): IDatabaseResponse {
+        console.log(data);
+        return await prismaClient.item.deleteMany({
             where: {
-                id: id_item
+                order_id: data.order_id,
+                id: data.id
             }
         }).then((result) => {
             return {
