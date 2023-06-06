@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
-    "prisma:generate": "prisma generate --schema=src/prisma/prisma.schema.prisma"
+    "prisma:generate": "npx prisma generate --schema=src/prisma/prisma.schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^4.9.0",
