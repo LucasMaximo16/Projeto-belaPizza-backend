@@ -1,5 +1,5 @@
 import { IDatabaseResponse } from './../../types/IDatabaseRespose';
-import { prismaClient } from "../../prisma"
+import { prismaClient } from "../../../prisma"
 
 export interface ICategory {
     name: string

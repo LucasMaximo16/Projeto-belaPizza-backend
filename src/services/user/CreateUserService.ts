@@ -1,6 +1,6 @@
 import { UserRepository } from '../../Repository/User/userRepository';
 import { IUserDTO } from "../../DTO/UserDTO/IUserDTO";
-import { prismaClient } from "../../prisma";
+import { prismaClient } from "../../../prisma";
 import { userValidation } from "../../validation/UserValidation/UserValidation";
 import { hash } from "bcrypt"
 

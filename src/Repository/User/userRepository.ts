@@ -1,5 +1,5 @@
 import { hash } from "bcrypt"
-import { prismaClient } from "../../prisma"
+import { prismaClient } from "../../../prisma"
 import { IDatabaseResponse } from "../../types/IDatabaseRespose"
 import { userValidation } from "../../validation/UserValidation/UserValidation"
 

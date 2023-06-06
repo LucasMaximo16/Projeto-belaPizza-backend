@@ -1,4 +1,4 @@
-import { prismaClient } from '../../prisma';
+import { prismaClient } from '../../../prisma';
 import { IUserDTO } from './../../DTO/UserDTO/IUserDTO';
 
 export async function userValidation(data: IUserDTO) {

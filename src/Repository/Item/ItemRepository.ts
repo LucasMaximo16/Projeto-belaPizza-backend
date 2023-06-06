@@ -1,6 +1,6 @@
 import { order_id } from './../../services/order/FinishOrderService';
 import { IDatabaseResponse } from './../../types/IDatabaseRespose';
-import { prismaClient } from "../../prisma";
+import { prismaClient } from "../../../prisma";
 import { DeleteItemDTO } from '../../DTO/ItemDTO/deleteItemDTO';
 
 export interface ItemProps {

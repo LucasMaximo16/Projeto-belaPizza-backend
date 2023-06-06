@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { compare } from 'bcrypt';
-import { prismaClient } from '../../prisma';
+import { prismaClient } from '../../../prisma';
 import { ILoginUserDTO } from './../../DTO/UserDTO/ILoginUserDTO';
 import { LoginRepository } from '../../Repository/User/loginRepository';
 export class LoginUserService {

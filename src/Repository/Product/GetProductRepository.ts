@@ -1,4 +1,4 @@
-import { prismaClient } from '../../prisma';
+import { prismaClient } from '../../../prisma';
 import { IDatabaseResponse } from './../../types/IDatabaseRespose';
 
 export class GetProductRepository {
