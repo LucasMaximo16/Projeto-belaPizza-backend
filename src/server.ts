@@ -14,7 +14,7 @@ const io = new socketio.Server(httpServer, {
     }
 })
 const corsOptions = {
-    origin: ['http://localhost:3333', 'http://localhost:4200', 'http://localhost:3000', 'https://main--bela-pizza.netlify.app',"https://bela-pizza.netlify.app/"],
+    origin: ['http://localhost:3333', 'http://localhost:4200', 'http://localhost:3000', 'https://main--bela-pizza.netlify.app','https://bela-pizza.netlify.app/'],
     credentials: true
 }
 
