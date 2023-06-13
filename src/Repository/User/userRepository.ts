@@ -29,7 +29,7 @@ export class UserRepository {
             }
         }).catch((error) => {
             return {
-                status: 200,
+                status: 400,
                 data: {
                     message: "INTERNAL SERVER ERROR"
                 }
