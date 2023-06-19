@@ -3,8 +3,11 @@ import { FinishOrderService } from "../../services/order/FinishOrderService";
 
 export class FinishOrderController {
     async handle(request: Request, response: Response) {
-        const order_id = request.body
+        
+        const {order_id} = request.body
 
+        console.log("order_id2", order_id);
+        
         try {
             const orderService = new FinishOrderService
             const result = await orderService.execute(order_id)

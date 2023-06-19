@@ -10,6 +10,8 @@ export class LoginUserService {
         const loginRepository = new LoginRepository()
 
         const user = await loginRepository.loginUser(data)
+        console.log("user", data);
+        
 
         if (!user.data) {
             throw new Error("Email ou password invalidos")

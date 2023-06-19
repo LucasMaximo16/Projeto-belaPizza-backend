@@ -9,6 +9,9 @@ export class LoginUserController {
 
         const loginUserService = new LoginUserService()
 
+        console.log(data);
+        
+
         try {
             const result = await loginUserService.execute(data)
             return response.status(result.status).json(result.data)

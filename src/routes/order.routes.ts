@@ -27,7 +27,7 @@ orderRoutes.delete('/delete', auth, (request: Request, response: Response) => {
 orderRoutes.put('/', auth,  (request: Request, response: Response) => {
     return sendPutOrderController.handle(request, response)
 })
-orderRoutes.put('/finish', auth, (request: Request, response: Response) => {
+orderRoutes.post('/finish', auth, (request: Request, response: Response) => {
     return finishOrderController.handle(request, response)
 })
 

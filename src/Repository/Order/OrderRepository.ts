@@ -190,4 +190,28 @@ export class OrderRepository {
             }
         })
     }
+
+    async finishOrder2(order_id: string): IDatabaseResponse {
+        console.log(order_id);
+        return await prismaClient.order.delete({
+            where:{
+                id:order_id
+            },
+            select:{
+                id:true
+            }
+        }).then((result) => {
+            return {
+                status: 200,
+                data: result
+            }
+        }).catch((error) => {
+            return {
+                status: 400,
+                data: {
+                    message: "INTERNAL SERVER ERROR"
+                }
+            }
+        })
+    }
 }

@@ -5,10 +5,12 @@ export interface order_id {
 }
 
 export class FinishOrderService {
-    async execute(order_id: order_id) {
+    async execute(order_id: string) {
 
+        console.log("order_id", order_id);
+        
         const orderRepository = new OrderRepository
-        const result = orderRepository.finishOrder(order_id.id)
+        const result = orderRepository.finishOrder2(order_id)
 
         return result
     }
